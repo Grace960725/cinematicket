@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <items>
-<item><name>神奇女侠</name><cinema>幸福蓝海影城江宁店</cinema><date>2017-06-09</date><screenings><value><auditorium>贵宾厅(激光厅)</auditorium><time>11:20</time><price>39</price><language>英语</language></value><value><auditorium>贵宾厅(激光厅)</auditorium><time>14:00</time><price>39</price><language>英语</language></value><value><auditorium>贵宾厅(激光厅)</auditorium><time>16:40</time><price>39</price><language>英语</language></value></screenings></item>
+<item><name>神奇女侠</name><cinema>蓝海影幸福城江宁店</cinema><date>2017-06-09</date><screenings><value><auditorium>贵宾厅(激光厅)</auditorium><time>11:20</time><price>39</price><language>英语</language></value><value><auditorium>贵宾厅(激光厅)</auditorium><time>14:00</time><price>39</price><language>英语</language></value><value><auditorium>贵宾厅(激光厅)</auditorium><time>16:40</time><price>39</price><language>英语</language></value></screenings></item>
 <item><name>“吃吃”的爱</name><cinema>幸福蓝海影城江宁金鹰店</cinema><date>2017-06-08</date><screenings><value><auditorium>3号厅</auditorium><time>14:10</time><price>34</price><language>国语</language></value></screenings></item>
 <item><name>荡寇风云</name><cinema>幸福蓝海影城江宁店</cinema><date>2017-06-09</date><screenings><value><auditorium>6号厅</auditorium><time>12:40</time><price>29</price><language>国语</language></value></screenings></item>
 <item><name>三只小猪2</name><cinema>幸福蓝海影城江宁店</cinema><date>2017-06-09</date><screenings><value><auditorium>5号厅</auditorium><time>18:00</time><price>29</price><language>国语</language></value></screenings></item>

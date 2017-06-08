@@ -30,7 +30,7 @@
 ]
 ```
 
-`/api/movie/{id}/date/{yyyy:MM:dd}`
+/api/movie/{id}/date/{yyyy:MM:dd}
 ```
 {
      "id":123,
@@ -38,11 +38,12 @@
      "date":"2017-06-09",
      "screenings":[
         {
-            
-            "price":39
-        }
+            "cinema":"蓝海影幸福城江宁店",
+            "time":"11:20",
+            "price":39,
+            "remain":"50%", //不一定有
+            "type":"英语3D" //不一定有
+        },
      ]
-     
-     
 }
 ```
