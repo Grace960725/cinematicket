@@ -30,7 +30,7 @@
 ]
 ```
 
-/api/movie/{id}/date/{yyyy:MM:dd}
+/api/movie/{id}/date/{yyyy-MM-dd}
 ```javascript
 {
      "id":123,
