@@ -13,7 +13,7 @@
 ```
 
 /api/movie/{id}
-```
+```javascript
 {
     "id":123,
     "name":"三只小猪",
@@ -31,7 +31,7 @@
 ```
 
 /api/movie/{id}/date/{yyyy:MM:dd}
-```
+```javascript
 {
      "id":123,
      "name":"三只小猪",
