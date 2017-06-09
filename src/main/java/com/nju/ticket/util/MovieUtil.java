@@ -5,8 +5,8 @@ package com.nju.ticket.util;
  */
 public class MovieUtil {
 
-    public static String movieIdentifier(String movieName){
-        return movieName.replaceAll("[\\pP‘’“”]", "");
-    }
+//    public static String movieIdentifier(String movieName){
+//        return movieName.replaceAll("[\\pP‘’“”]", "");
+//    }
 
 }

@@ -8,6 +8,7 @@ import com.nju.ticket.dataInit.BriefMovieXmlData;
 import com.nju.ticket.dataInit.MovieXmlData;
 import com.nju.ticket.dataInit.properties.InitProperties;
 import com.nju.ticket.util.MovieUtil;
+import lombok.extern.java.Log;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
  * Created by sbin on 2017/6/8.
  */
 @Component
+@Log
 public class MovieDataCreator {
 
     @Autowired
@@ -33,7 +35,12 @@ public class MovieDataCreator {
     MovieIdentifierReader identifierReader;
 
     public boolean create(){
+
+        log.info("creating movie data");
+
         movieRepository.deleteAll();
+
+        //先做格瓦拉数据,格瓦拉数据有img属性
         List<MoviePo> gewaraList =
                 getMoviePo("movieData/gewara_score.xml");
 
@@ -60,7 +67,7 @@ public class MovieDataCreator {
         return XmlReader.getBriefMovieData(filename).stream().map(xmlData->{
             MoviePo po = new MoviePo();
             BeanUtils.copyProperties(xmlData,po);
-            po.setIdentifier(MovieUtil.movieIdentifier(po.getName()));
+            po.setIdentifier(identifierReader.getIdentifier(po.getName()));
             return po;
         }).collect(Collectors.toList());
 

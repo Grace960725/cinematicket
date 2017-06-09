@@ -3,6 +3,7 @@ package com.nju.ticket.data.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * Created by sbin on 2017/6/8.
@@ -18,6 +19,9 @@ public class ScreeningPo {
     int id;
 
     @Column
+    Date date;
+
+    @Column
     String time;
 
     @Column
@@ -29,12 +33,23 @@ public class ScreeningPo {
     @Column
     int price;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "movieId",referencedColumnName = "id")
     MoviePo movie;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "cinemaId",referencedColumnName = "id")
-    MoviePo cinema;
+    CinemaPo cinema;
 
+    @Override
+    public String toString() {
+        return "ScreeningPo{" +
+                "id=" + id +
+                ", date=" + date +
+                ", time='" + time + '\'' +
+                ", type='" + type + '\'' +
+                ", remain='" + remain + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

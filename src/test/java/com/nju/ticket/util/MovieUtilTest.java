@@ -12,8 +12,8 @@ import static org.junit.Assert.*;
 public class MovieUtilTest {
     @Test
     public void movieIdentifier() throws Exception {
-        System.out.println(MovieUtil.movieIdentifier("“吃吃”的爱"));
-        System.out.println(MovieUtil.movieIdentifier("李雷和韩梅梅——昨日重现"));
+//        System.out.println(MovieUtil.movieIdentifier("“吃吃”的爱"));
+//        System.out.println(MovieUtil.movieIdentifier("李雷和韩梅梅——昨日重现"));
 
     }
 

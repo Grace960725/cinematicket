@@ -6,6 +6,7 @@ import com.nju.ticket.data.entity.CinemaPo;
 import com.nju.ticket.data.entity.MoviePo;
 import com.nju.ticket.dataInit.MovieXmlData;
 import com.nju.ticket.dataInit.ScreeningXmlData;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,22 +18,27 @@ import java.util.stream.Collectors;
  * Created by sbin on 2017/6/9.
  */
 @Component
+@Log
 public class CinemaDataCreator {
+
 
     @Autowired
     CinemaRepository cinemaRepository;
 
     public boolean create(){
+
+        log.info("creating cinema data");
+
         cinemaRepository.deleteAll();
         XmlMapper mapper = new XmlMapper();
 
+        //先做美团的数据,因为美团数据较为规整
         List<MovieXmlData> meituanScreenData =
                 XmlReader.getMovieData("movieData/meituan.xml");
 
         Set<CinemaPo> cinemaPoSet = meituanScreenData.stream()
                 .map(data -> convertToPo(data))
                 .collect(Collectors.toSet());
-        System.out.println(cinemaPoSet);
         cinemaRepository.save(cinemaPoSet);
         return true;
     }
@@ -58,7 +64,7 @@ public class CinemaDataCreator {
     private String removeUnrelatedWord(String name){
 
         String[] unrelatedWords =
-                {"电影城","影城","电影院","影院","大剧院","剧院","大戏院","戏院"};
+                {"国际影城","电影城","影城","电影院","影院","大剧院","剧院","大戏院","戏院","南京"};
 
         String s = name;
 

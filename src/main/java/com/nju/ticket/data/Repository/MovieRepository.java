@@ -15,4 +15,6 @@ public interface MovieRepository extends JpaRepository<MoviePo,Integer> {
     @Query("select m.identifier from MoviePo m")
     List<String> findIdentifier();
 
+    MoviePo findByIdentifier(String identifier);
+
 }
