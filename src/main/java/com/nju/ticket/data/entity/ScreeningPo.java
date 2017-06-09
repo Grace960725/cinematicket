@@ -1,5 +1,7 @@
 package com.nju.ticket.data.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "screen")
+@Data
 public class ScreeningPo {
 
     @Id

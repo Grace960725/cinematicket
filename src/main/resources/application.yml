@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:h2:file:./ticketDb
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+
+app:
+  initData: true
+  synonyms:
+      潜艇总动员5时光宝盒: 潜艇总动员之时光宝盒

@@ -6,6 +6,7 @@ import com.nju.ticket.data.Repository.MovieRepository;
 import com.nju.ticket.data.entity.MoviePo;
 import com.nju.ticket.dataInit.BriefMovieXmlData;
 import com.nju.ticket.dataInit.MovieXmlData;
+import com.nju.ticket.dataInit.properties.InitProperties;
 import com.nju.ticket.util.MovieUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class MovieDataCreator {
     @Autowired
     private MovieRepository movieRepository;
 
+    @Autowired
+    MovieIdentifierReader identifierReader;
+
     public boolean create(){
         movieRepository.deleteAll();
         List<MoviePo> gewaraList =
@@ -38,14 +42,12 @@ public class MovieDataCreator {
         saveIfNotExist(getMoviePo("movieData/meituan_score.xml"));
         saveIfNotExist(getMoviePo("movieData/nuomi_score.xml"));
 
-
-
         return true;
     }
 
     private void saveIfNotExist(List<MoviePo> moviePos){
 
-        Set<String> identifierSet = new HashSet<>(movieRepository.findIdentifier());
+        Set<String> identifierSet = identifierReader.getIdentifierSet();
 
         moviePos.stream()
                 .filter( m -> !identifierSet.contains(m.getIdentifier()) )
@@ -55,7 +57,7 @@ public class MovieDataCreator {
 
     private List<MoviePo> getMoviePo(String filename){
 
-        return getBriefMovieData(filename).stream().map(xmlData->{
+        return XmlReader.getBriefMovieData(filename).stream().map(xmlData->{
             MoviePo po = new MoviePo();
             BeanUtils.copyProperties(xmlData,po);
             po.setIdentifier(MovieUtil.movieIdentifier(po.getName()));
@@ -64,21 +66,5 @@ public class MovieDataCreator {
 
     }
 
-    private List<BriefMovieXmlData> getBriefMovieData(String filename){
-
-        File file = new File(filename);
-        XmlMapper mapper = new XmlMapper();
-
-        List<BriefMovieXmlData> briefMovieList = new ArrayList<>();
-
-        try {
-            briefMovieList.addAll(mapper.readValue
-                    (file, new TypeReference<List<BriefMovieXmlData>>() { }));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return briefMovieList;
-    }
 
 }

@@ -1,5 +1,7 @@
 package com.nju.ticket.data.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "cinema")
+@Data
 public class CinemaPo {
 
     @Id
