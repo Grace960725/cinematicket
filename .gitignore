@@ -2,6 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 
 *.db
+!ticketDb.mv.db
 
 ### STS ###
 .apt_generated
