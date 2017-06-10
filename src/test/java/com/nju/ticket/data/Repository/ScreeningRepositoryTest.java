@@ -65,4 +65,10 @@ public class ScreeningRepositoryTest {
         System.out.println(po.getMovie());
     }
 
+    @Test
+    public void findDate(){
+        MoviePo moviePo = movieRepository.findAll().get(0);
+        System.out.println(screeningRepository.findMovieDate(moviePo));
+    }
+
 }
