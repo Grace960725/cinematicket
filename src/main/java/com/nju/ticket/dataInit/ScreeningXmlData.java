@@ -16,7 +16,7 @@ import java.util.Date;
 public class ScreeningXmlData {
 
     String time;
-    int price;
+    double price;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     String remain;

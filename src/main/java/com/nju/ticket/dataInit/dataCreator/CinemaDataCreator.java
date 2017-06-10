@@ -53,7 +53,7 @@ public class CinemaDataCreator {
         cinemaPo.setShortName(token[0]);
 
         if(token.length==2){
-            cinemaPo.setLocation(token[1]);
+            cinemaPo.setLocation(token[1].replace("店",""));
         }else{
             cinemaPo.setLocation("");
         }

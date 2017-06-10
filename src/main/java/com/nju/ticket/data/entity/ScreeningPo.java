@@ -31,15 +31,17 @@ public class ScreeningPo {
     String remain;
 
     @Column
-    int price;
+    double price;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "movieId",referencedColumnName = "id")
     MoviePo movie;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "cinemaId",referencedColumnName = "id")
     CinemaPo cinema;
+
+    public ScreeningPo(){}
 
     @Override
     public String toString() {

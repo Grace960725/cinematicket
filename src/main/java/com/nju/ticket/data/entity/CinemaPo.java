@@ -28,7 +28,7 @@ public class CinemaPo {
     @Column
     String shortName;
 
-    @OneToMany(mappedBy = "cinema")
+    @OneToMany(mappedBy = "cinema",cascade = CascadeType.REMOVE)
     List<ScreeningPo> screeningList;
 
 }
