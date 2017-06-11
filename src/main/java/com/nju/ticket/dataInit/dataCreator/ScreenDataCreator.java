@@ -63,10 +63,23 @@ public class ScreenDataCreator {
         });
         saveOneFileData("movieData/nuomi.xml",(po,xml)->{
             po.setRemain(xml.getRemain());
+            setLowestPrice(po,xml);
             screeningRepository.save(po);
         });
 
         return false;
+    }
+
+    private void setLowestPrice(ScreeningPo po,ScreeningXmlData xmlData){
+
+        if(xmlData.getPrice()==0){
+            return;
+        }
+
+        if( po.getPrice()==0 || xmlData.getPrice()<po.getPrice() ){
+            po.setPrice(xmlData.getPrice());
+        }
+
     }
 
     private void saveOneFileData
