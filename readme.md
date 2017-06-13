@@ -32,6 +32,7 @@ Github地址:https://github.com/NJU-Application-Integration/cinematicket.
 2.	逐个爬取电影的上映日期
 3.	逐个获取每个日期的各个影院
 4.	逐个获取该影院当天的排片表
+5.      所有评论的评分
 
 代码表示为
 ```python
